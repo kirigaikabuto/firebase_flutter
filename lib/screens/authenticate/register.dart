@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:firebase_example/services/auth.dart';
+import "package:firebase_example/shared/constants.dart";
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -43,6 +44,7 @@ class _RegisterState extends State<Register> {
                   height: 20.0,
                 ),
                 TextFormField(
+                    decoration: textInputDecoration,
                     onChanged: (value) {
                       setState(() => email = value);
                     },
@@ -52,6 +54,7 @@ class _RegisterState extends State<Register> {
                   height: 20.0,
                 ),
                 TextFormField(
+                    decoration:textInputDecoration.copyWith(hintText: "Password"),
                     obscureText: true,
                     onChanged: (value) {
                       setState(() => password = value);

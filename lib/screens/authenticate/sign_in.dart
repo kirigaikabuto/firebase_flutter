@@ -1,6 +1,7 @@
 import 'package:firebase_example/services/auth.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
+import 'package:firebase_example/shared/constants.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -43,6 +44,7 @@ class _SignInState extends State<SignIn> {
                     height: 20.0,
                   ),
                   TextFormField(
+                    decoration: textInputDecoration,
                     validator: (value) =>
                         value.isEmpty ? "Enter an email" : null,
                     onChanged: (value) {
@@ -53,6 +55,8 @@ class _SignInState extends State<SignIn> {
                     height: 20.0,
                   ),
                   TextFormField(
+                    decoration:
+                        textInputDecoration.copyWith(hintText: "Password"),
                     validator: (value) => value.length < 6
                         ? "Enter a password 6+ chars long"
                         : null,
@@ -67,8 +71,9 @@ class _SignInState extends State<SignIn> {
                   RaisedButton(
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
-                          dynamic result = await _auth
-                              .signInWithEmailAndPasswordMethod(email, password);
+                          dynamic result =
+                              await _auth.signInWithEmailAndPasswordMethod(
+                                  email, password);
                           if (result == null) {
                             setState(() =>
                                 error = "No user with that email and password");
