@@ -49,7 +49,7 @@ class _RegisterState extends State<Register> {
                       height: 20.0,
                     ),
                     TextFormField(
-                        decoration: textInputDecoration,
+                        decoration: textInputDecoration.copyWith(hintText: "Email"),
                         onChanged: (value) {
                           setState(() => email = value);
                         },

@@ -49,7 +49,7 @@ class _SignInState extends State<SignIn> {
                         height: 20.0,
                       ),
                       TextFormField(
-                        decoration: textInputDecoration,
+                        decoration: textInputDecoration.copyWith(hintText: "Email"),
                         validator: (value) =>
                             value.isEmpty ? "Enter an email" : null,
                         onChanged: (value) {
